@@ -6,10 +6,14 @@ body{
     align-content: center;
     align-items: center;
     
-    }
+}
 #navbar{
     height:  80px;
     background-color: #557373;
+}
+#checkbox{
+    height: 20px;
+    width: 20px;
 }
 .name{
     float: left;
@@ -41,10 +45,36 @@ h2{
     padding: 2px;
     font-size: 28;
 }
+input{
+    height: 30px;
+    width: 300px;
+}
+button{
+    height: 30px;
+    width: 300px
+}
+.login{
+    border-style: solid;
+    border-color: #06170756;
+    border-radius: 5px;
+    margin-top: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+}
+.register{
+    border-style: solid;
+    border-color: #06170756;
+    border-radius: 5px;
+    margin-top: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+}
 .content{
     text-align: center;
     font-size: 18;
-    padding 5px;
+    padding-right: 200px;
     display: grid;
     justify-content: space-around;
 }
