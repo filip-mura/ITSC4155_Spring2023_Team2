@@ -3,6 +3,9 @@ body{
     font-family: 'Bebas Neue', cursive;
     background-color: #dfe5f3;
     color: black;
+    align-content: center;
+    align-items: center;
+    
     }
 #navbar{
     height:  80px;
@@ -39,15 +42,9 @@ h2{
     font-size: 28;
 }
 .content{
-    text-align: left;
+    text-align: center;
     font-size: 18;
     padding 5px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
     justify-content: space-around;
 }
-
-
-
-
-
