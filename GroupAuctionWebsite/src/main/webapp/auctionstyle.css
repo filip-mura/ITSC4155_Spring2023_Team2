@@ -27,10 +27,10 @@ body{
 .nav{
     overflow: hidden;
 }
-
+	
 .nav a{
     float : right;
-    color: #black;
+    color: black;
     text-align: right;
     padding: 20px;
     text-transform: uppercase;
@@ -43,7 +43,7 @@ body{
 }
 h2{
     padding: 2px;
-    font-size: 28;
+    font-size: 28px;
 }
 input{
     height: 30px;
@@ -73,7 +73,7 @@ button{
 }
 .content{
     text-align: center;
-    font-size: 18;
+    font-size: 18px;
     padding-right: 200px;
     display: grid;
     justify-content: space-around;
