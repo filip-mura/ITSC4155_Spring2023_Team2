@@ -23,14 +23,100 @@
     <div class ="content">
 
 
-    <div class = "wipMessage">
-        <form action="#">
-            <br><br><br>
-            <img src="logo.png" alt="car outline with company name" style="width:420px;height:150px;">
-            <h2> Oops! It looks like this page is still under development</h2>
-            <p> Please try again later</p>
-        </form>
-    </div>
+        <div class = "createListing">
+            <form method="post" action="InsertNewListing">
+                <br><br><br>
+
+                <img src="logo.png" alt="car outline with company name" style="width:420px;height:150px;">
+                <p> Create a new auction listing below!</p>
+
+                <p>
+                    <input type="text" id="make" name="make" placeholder="Make" required>
+                </p>
+
+                <p>
+                    <input type="text" id="model" name="model" placeholder="Model" required>
+                </p>
+
+                <p>
+                    <label for="year">Year:</label>
+                    <input type="range" id="year" name="year" min="1908" max="2024" step="1" value="2021">
+                    <span id="year-label">2021</span>
+                    <script>
+                        const yearInput = document.getElementById('year');
+                        const yearLabel = document.getElementById('year-label');
+                        yearInput.addEventListener('input', () => {
+                        yearLabel.innerText = yearInput.value;
+                        });
+                    </script>
+                </p>
+
+                <p>
+                    <label for="mileage">Mileage:</label>
+                    <input type="range" id="mileage" name="mileage" min="0" max="300000" step="100" value="0">
+                    <span id="mileage-label">0</span>
+                    <script>
+                        const mileageInput = document.getElementById('mileage');
+                        const mileageLabel = document.getElementById('mileage-label');
+                        mileageInput.addEventListener('input', () => {
+                        mileageLabel.innerText = mileageInput.value;
+                        });
+                    </script>
+                </p>
+
+                <p>
+                    <label for="color">Color:</label>
+                    <select id="color" name="color">
+                        <option value="white">White</option>
+                        <option value="black">Black</option>
+                        <option value="grey">Grey</option>
+                        <option value="silver">Silver</option>
+                        <option value="blue">Blue</option>
+                        <option value="red">Red</option>
+                        <option value="brown">Brown</option>
+                        <option value="green">Green</option>
+                        <option value="orange">Orange</option>
+                        <option value="gold">Gold</option>
+                        <option value="yellow">Yellow</option>
+                        <option value="purple">Purple</option>
+                        <option value="other">Other</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="condition">Condition:</label>
+                    <select id="condition" name="condition" required>
+                        <option value="new">New</option>
+                        <option value="excellent">Excellent</option>
+                        <option value="good">Good</option>
+                        <option value="fair">Fair</option>
+                        <option value="poor">Poor</option>
+                    </select>
+                </p>
+
+                <p>
+                    <input type="number" id="starting_bid" name="starting_bid" placeholder="Starting Bid" required>
+                </p>
+
+                <p>
+                    <input type="number" id="reserve_price" name="reserve_price" placeholder="Reserve Price">
+                </p>
+
+                <p>
+                    <textarea id="description" name="description" placeholder="Description" rows="5" cols="40"></textarea>
+                </p>
+
+                <p>
+                    <label for="image">Add Images:</label>
+                    <input type="file" id="image" name="image" accept="image/*">
+                </p>
+
+                <p>
+                    <input type="submit" value="Create Listing">
+                </p>
+
+            </form>
+        </div>
 
     
     </div>
