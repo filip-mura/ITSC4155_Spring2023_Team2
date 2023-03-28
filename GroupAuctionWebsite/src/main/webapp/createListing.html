@@ -107,8 +107,41 @@
                 </p>
 
                 <p>
-                    <label for="image">Add Images:</label>
-                    <input type="file" id="image" name="image" accept="image/*">
+                    <label for="photos">Add Photos:</label>
+                    <input type="file" id="photos" name="photos[]" multiple accept="image/*">
+                    <div id="photo-preview"></div>
+
+                    <style>
+                        #photo-preview img {
+                        width: 100px;
+                        height: 100px;
+                        object-fit: cover;
+                        margin-right: 5px;
+                    }
+                    </style>
+
+                    <script>
+                        const photoInput = document.getElementById('photos');
+                        const photoPreview = document.getElementById('photo-preview');
+
+                        photoInput.addEventListener('change', () => {
+                        photoPreview.innerHTML = '';
+
+                        for (let i = 0; i < photoInput.files.length; i++) {
+                        const file = photoInput.files[i];
+                        const reader = new FileReader();
+
+                        reader.addEventListener('load', () => {
+                            const img = document.createElement('img');
+                            img.src = reader.result;
+                            img.alt = file.name;
+                            photoPreview.appendChild(img);
+                        });
+
+                        reader.readAsDataURL(file);
+                        }
+                    });
+                    </script>
                 </p>
 
                 <p>
