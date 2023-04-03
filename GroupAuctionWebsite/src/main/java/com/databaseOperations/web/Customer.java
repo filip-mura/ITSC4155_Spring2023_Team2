@@ -1,4 +1,4 @@
-package com.insertRegistration.web;
+package com.databaseOperations.web;
 
 public class Customer {
 	

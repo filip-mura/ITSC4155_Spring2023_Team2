@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 
 import com.databaseConnection.web.DatabaseConnection;
-import com.insertRegistration.web.Customer;
+import com.databaseOperations.web.Customer;
 
 @WebServlet("/LoginCheck")
 public class login extends HttpServlet {

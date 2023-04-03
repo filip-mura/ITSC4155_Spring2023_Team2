@@ -1,4 +1,4 @@
-package com.insertRegistration.web;
+package com.databaseOperations.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
