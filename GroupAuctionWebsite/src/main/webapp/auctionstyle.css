@@ -119,3 +119,14 @@ button{
     padding-right: 25px;
     padding-bottom: 25px;
 }
+.gallery {
+	margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    width: 900px;
+    overflow-x: auto;
+    background-color: #ddd;
+}
+.gallery img {
+	max-width: 100%; /* ensure images don't exceed container width */
+}
