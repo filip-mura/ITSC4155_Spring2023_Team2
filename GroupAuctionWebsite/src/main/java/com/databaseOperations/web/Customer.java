@@ -13,6 +13,19 @@ public class Customer {
 		return id;
 	}
 	
+	public Customer(String fName, String lName, String email, String password, boolean loggedIn, int id) {
+		this.fName = fName;
+		this.lName = lName;
+		this.email = email;
+		this.password = password;
+		this.loggedIn = false;
+		this.id = id;
+		
+	}
+	
+	public Customer() {	
+	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}

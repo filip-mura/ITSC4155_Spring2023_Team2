@@ -11,7 +11,20 @@ public class Listing {
 	private int carReservePrice;
 	private String carDescription;
 	
+	public Listing(String carMake, String carModel, String carYear, int carMileage, String carColor, String carCondition, int carStartBid, int carReservePrice, String carDescription) {
+		this.carMake = carMake;
+		this.carModel = carModel;
+		this.carYear = carYear;
+		this.carMileage = carMileage;
+		this.carColor = carColor;
+		this.carCondition = carCondition;
+		this.carStartBid = carStartBid;
+		this.carReservePrice = carReservePrice;
+		this.carDescription = carDescription;
+	}
 	
+	public Listing() {
+	}
 	public String getCarMake() {
 		return carMake;
 	}

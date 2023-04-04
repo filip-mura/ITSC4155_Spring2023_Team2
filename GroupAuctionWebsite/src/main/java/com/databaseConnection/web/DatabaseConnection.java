@@ -20,7 +20,7 @@ public class DatabaseConnection {
 	        Class.forName("com.mysql.cj.jdbc.Driver");
 	        String url = "jdbc:mysql://localhost:3306/auctions";
 	        String user = "root";
-	        String password = "password";
+	        String password = "Aholme13!";
 //	        String url = "jdbc:mysql://groupauctiondatabase.c28o0ulgtspp.us-east-2.rds.amazonaws.com:3306/auctions";
 //	        String user = "admin";
 //	        String password = "razno1-pckfy";
