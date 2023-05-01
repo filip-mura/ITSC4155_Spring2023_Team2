@@ -1,33 +1,24 @@
-/* Discuss color pallette*/
+/* Font, gradient background, and content/item alignment */
 body{
     font-family: 'Bebas Neue', cursive;
-    background-color: #dfe5f3;
+    background-image: linear-gradient(-20deg, #616161 0%, #9bc5c3 100%);
     color: black;
     align-content: center;
     align-items: center;
-    
+    background-size: fill;
+    background-position: center center;
 }
+
+
+
+/* Nav-bar styling */
 #navbar{
     height:  80px;
     background-color: #557373;
 }
-#checkbox{
-    height: 20px;
-    width: 20px;
-}
-.name{
-    float: left;
-    margin-left: 28px;
-    padding: 10px;
-    text-transform: uppercase;
-    font-size: 50px;
-    color: #061707;
-    font-weight: 900;
-}
 .nav{
     overflow: hidden;
 }
-	
 .nav a{
     float : right;
     color: black;
@@ -41,64 +32,196 @@ body{
 .nav a:link{
     color: black;
 }
+
+
+
+/* The following section contains all styling for forms and content containers */
+.login{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 75px;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+}
+.register{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 75px;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+}
+.createListing{
+    margin-top: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+}
+.welcomeMessage{
+    margin-top: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 75px;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+}
+
+
+
+/* The following section contains all styling for input elements (text boxes, buttons, drop downs, etc) */
+#checkbox{
+    height: 20px;
+    width: 20px;
+}
+input{
+    height: 35px;
+    width: 66%;
+    font-size: 14px;
+    border-radius: 5px;
+    line-height: 1.5;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+    transition: background 0.2s ease,color 0.2s ease,box-shadow 0.2s ease;
+    border: none;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+}
+input:hover {
+    background: rgba(255, 255, 255, 0);
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+}
+input:focus{
+    background: rgba(255, 255, 255, 0);
+    outline: none;
+}
+button{
+    width: 66%;
+    margin-top: 20px;
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    border: none;
+    padding: 0 56px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+    font-weight: 400;
+    font-size: 16px;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+    transition: background 0.2s ease,color 0.2s ease,box-shadow 0.2s ease;
+}
+button:hover{
+     background: rgba(255, 255, 255, 0);
+     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+}
+.name{
+    float: left;
+    margin-left: 28px;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 50px;
+    color: #061707;
+    font-weight: 900;
+}
+.check {
+    cursor: pointer;
+    position: relative;
+    margin: auto;
+    width: 18px;
+    height: 18px;
+    -webkit-tap-highlight-color: transparent;
+    transform: translate3d(0, 0, 0);
+}
+.check:before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(6,23,7,0.03);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+.check svg {
+    position: relative;
+    z-index: 1;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #061707;
+    stroke-width: 1.5;
+    transform: translate3d(0, 0, 0);
+    transition: all 0.2s ease;
+}
+.check svg path {
+    stroke-dasharray: 60;
+    stroke-dashoffset: 0;
+}
+.check svg polyline {
+    stroke-dasharray: 22;
+    stroke-dashoffset: 66;
+}
+.check:hover:before {
+    opacity: 1;
+}
+.check:hover svg {
+    stroke: #061707;
+}
+#checkbox:checked + .check svg {
+    stroke: #061707;
+}
+#checkbox:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+#checkbox:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+
+
 h2{
     padding: 2px;
     font-size: 28px;
 }
-input{
-    height: 30px;
-    width: 300px;
-}
-button{
-    height: 30px;
-    width: 300px
-}
-.login{
-    border-style: solid;
-    border-color: #06170756;
-    border-radius: 5px;
-    margin-top: 50px;
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-bottom: 25px;
-}
-.register{
-    border-style: solid;
-    border-color: #06170756;
-    border-radius: 5px;
-    margin-top: 50px;
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-bottom: 25px;
-}
-.createListing{
-    border-style: solid;
-    border-color: #06170756;
-    border-radius: 5px;
-    margin-top: 50px;
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-bottom: 25px;
-}
+
+
 .listings-container{
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	grid-gap: 20px;
 	padding: 20px;
+	padding-top: 0px;
 }
-
 .listing{
-	border-style: solid;
-    border-color: #06170756;
-    border-radius: 5px;
-    margin-top: 25px;
+    margin-top: 15px;
     padding-left: 25px;
     padding-right: 25px;
     padding-bottom: 25px;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
 }
 .listing img{
 	display: block;
-	height: 200px;
 	margin-bottom: 10px;
 	margin-top: 25px;
 	width: 100%;
@@ -110,23 +233,34 @@ button{
     display: grid;
     justify-content: space-around;
 }
-.welcomeMessage{
-	border-style: solid;
-    border-color: #06170756;
-    border-radius: 5px;
-    margin-top: 50px;
+.gallery {
+	margin-top: 15px;
     padding-left: 25px;
     padding-right: 25px;
     padding-bottom: 25px;
-}
-.gallery {
-	margin: 0;
-    padding: 0;
     white-space: nowrap;
     width: 900px;
     overflow-x: auto;
     background-color: #ddd;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
 }
 .gallery img {
-	max-width: 100%; /* ensure images don't exceed container width */
+	max-width: 100%;
+}
+#countdown {
+  display: inline;
+}
+.gallery-container{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 20px;
+	padding: 20px;
+	padding-top: 0px;
+}
+.galleryitem img{
+	display: block;
+	width: 100%;
 }

@@ -1,54 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <link rel = "stylesheet" type = "text/css" href = "auctionstyle.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-  <title>Listing Details</title>
+    <meta charset="UTF-8">
+    <link rel = "stylesheet" type = "text/css" href = "auctionstyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>BidupIndividualListing</title>
 </head>
+
+
+
 <body>
-<nav id = "navbar">
-  <div class = "name">Bidup</div>
+
+    <nav id = "navbar">
+        <div class = "name">Bidup</div>
+        <div class = "nav">
+            <a href = "about.html"> About</a>
+            <a href = "viewListings.html"> View Listings</a>
+            <a href = "createListing.html"> Create Listing</a>
+            <a href = "register.html"> Register</a>
+            <a href = "login.html"> Login</a>
+            <a class = "active" href="index.html"> Home</a>
+        </div>
+    </nav>
 
 
-  <div class = "nav">
-    <a href = "viewListings.html"> View Listings</a>
-    <a href = "createListing.html"> Create Listing</a>
-    <a href = "register.html"> Register</a>
-    <a href = "login.html"> Login</a>
-    <a class = "active" href="index.html"> Home</a>
-  </div>
-</nav>
 <div class ="content">
+    <div class = "welcomeMessage">
+        <br>
+        <h2> 1995 Mazda Miata</h2>
+        <p>Mileage: 67,000</p>
+        <p>Color: Black</p>
+        <p>Condition: Good</p>
+        <p>Up for sale is a classic roadster in great condition. A 5 speed manual, rear-wheel
+        drive, and a drop-top are sure to leave you and any of your passengers grinning from
+        ear to ear. Additionally, the custom interior features quilted leather door paneling
+        with accented stitching in red, and custom gauge faces. Place a bid below to own this
+        car soon!</p>
+        <br>
+
+        <div class = "gallery-container">
+
+            <div class="galleryitem">
+                <a><img src="miata1.jpeg" alt="Vehicle Image"></a>
+
+            </div>
+            <div class="galleryitem">
+                <a><img src="miata2.jpeg" alt="Vehicle Image"></a>
+
+            </div>
+            <div class="galleryitem">
+                <a><img src="miata3.jpeg" alt="Vehicle Image"></a>
+
+            </div>
+            <div class="galleryitem">
+                <a><img src="miata4.jpeg" alt="Vehicle Image"></a>
+
+            </div>
+            <div class="galleryitem">
+                <a><img src="miata5.jpeg" alt="Vehicle Image"></a>
+            </div>
+        </div>
+
+        
+        <p>Current Bid: $1500</p>
+
+        <p>Time Remaining: <span id="countdown"></span></p>
+        <script src="countdown.js"></script>
+
+        <p>Raise Bid By:</p>
+        <p>
+            <input type="text" id="raiseBid" name="raiseBid" placeholder="Enter Dollar Amount Here" required>
+        </p>
+        <p><input type="submit" value="Place Bid"></p>
 
 
-  <div class = "welcomeMessage">
-    <br>
-    <h2> 1995 Mazda Miata</h2>
-    <p>Mileage: 67,000</p>
-    <p>Current Bid: $7,000</p>
-  </div>
-
-  <div class="gallery">
-    <img src="miata1.jpeg" alt="Image 1">
-    <img src="miata2.jpeg" alt="Image 2">
-    <img src="miata3.jpeg" alt="Image 3">
-    <img src="miata4.jpeg" alt="Image 4">
-    <img src="miata5.jpeg" alt="Image 5">
-  </div>
-
-  <div class = "welcomeMessage">
-    <br>
-    <p>Up for sale is a classic roadster in great condition. A 5 speed manual, rear-wheel
-    drive, and a drop-top are sure to leave you and any of your passengers grinning from
-    ear to ear. Additionally, the custom interior features quilted leather door paneling
-    with accented stitching in red, and custom gauge faces. Place a bid below to own this
-    car soon!</p>
-  </div>
 
 
+    </div>
 </div>
+
 </body>
 </html>
