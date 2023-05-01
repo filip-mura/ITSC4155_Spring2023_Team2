@@ -253,6 +253,14 @@ h2{
 #countdown {
   display: inline;
 }
-
-
-
+.gallery-container{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 20px;
+	padding: 20px;
+	padding-top: 0px;
+}
+.galleryitem img{
+	display: block;
+	width: 100%;
+}
