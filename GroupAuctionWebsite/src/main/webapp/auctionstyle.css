@@ -250,6 +250,7 @@ h2{
 .gallery img {
 	max-width: 100%;
 }
+
 #countdown {
   display: inline;
 }
@@ -263,4 +264,8 @@ h2{
 .galleryitem img{
 	display: block;
 	width: 100%;
+}
+
+::placeholder {
+	color: black;
 }

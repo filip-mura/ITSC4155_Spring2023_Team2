@@ -1,4 +1,6 @@
-package com.databaseOperations.web;
+package com.classes;
+
+import java.io.FileInputStream;
 
 public class Listing {
 	private String carMake;
@@ -10,8 +12,9 @@ public class Listing {
 	private int carStartBid;
 	private int carReservePrice;
 	private String carDescription;
+	private int customerId;
 	
-	public Listing(String carMake, String carModel, String carYear, int carMileage, String carColor, String carCondition, int carStartBid, int carReservePrice, String carDescription) {
+	public Listing(String carMake, String carModel, String carYear, int carMileage, String carColor, String carCondition, int carStartBid, int carReservePrice, String carDescription, FileInputStream carPic, int customerId) {
 		this.carMake = carMake;
 		this.carModel = carModel;
 		this.carYear = carYear;
@@ -21,6 +24,8 @@ public class Listing {
 		this.carStartBid = carStartBid;
 		this.carReservePrice = carReservePrice;
 		this.carDescription = carDescription;
+		this.customerId = customerId;
+		
 	}
 	
 	public Listing() {
@@ -79,5 +84,14 @@ public class Listing {
 	public void setCarDescription(String carDescription) {
 		this.carDescription = carDescription;
 	}
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
+	}
+	public int getCustomerId() {
+		return customerId;
+	}
+
+	
+	
 
 }

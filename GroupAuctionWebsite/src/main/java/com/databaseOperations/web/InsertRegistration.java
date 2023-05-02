@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 
+import com.classes.Customer;
 import com.databaseConnection.web.DatabaseConnection;
 
 @WebServlet("/InsertRegistrationInfo")

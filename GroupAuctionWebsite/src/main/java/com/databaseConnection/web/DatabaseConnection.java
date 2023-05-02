@@ -1,5 +1,6 @@
 package com.databaseConnection.web;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,10 +10,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.databaseOperations.web.Customer;
-import com.databaseOperations.web.Listing;
+import com.classes.Customer;
+import com.classes.Listing;
 
 public class DatabaseConnection {
+	
+	static Customer customer;
 	
     public static Connection getConnect() {
     	Connection myConnection = null;
@@ -20,7 +23,7 @@ public class DatabaseConnection {
 	        Class.forName("com.mysql.cj.jdbc.Driver");
 	        String url = "jdbc:mysql://localhost:3306/auctions";
 	        String user = "root";
-	        String password = "Aholme13!";
+	        String password = "password";
 //	        String url = "jdbc:mysql://groupauctiondatabase.c28o0ulgtspp.us-east-2.rds.amazonaws.com:3306/auctions";
 //	        String user = "admin";
 //	        String password = "razno1-pckfy";
@@ -61,7 +64,7 @@ public class DatabaseConnection {
     	try {
     		Connection myConnection = DatabaseConnection.getConnect();
     		PreparedStatement statement = myConnection.prepareStatement(
-    				"INSERT INTO Listings(carMake,carModel, carYear, carMileage, carColor, carConditon, carStartBid, carReservePrice, carDescription) values (?,?,?,?,?,?,?,?,?)"); 
+    				"INSERT INTO Listings(carMake,carModel, carYear, carMileage, carColor, carConditon, carStartBid, carReservePrice, carDescription, carPhoto, userIdFK) values (?,?,?,?,?,?,?,?,?,?,?)"); 
     		
     		statement.setString(1, list.getCarMake());
     		statement.setString(2, list.getCarModel());
@@ -72,6 +75,7 @@ public class DatabaseConnection {
     		statement.setInt(7, list.getCarStartBid());
     		statement.setInt(8, list.getCarReservePrice());
     		statement.setString(9, list.getCarDescription());
+    		statement.setInt(10, customer.getId());
     		
     		status = statement.executeUpdate();
     		
@@ -83,8 +87,9 @@ public class DatabaseConnection {
     	return status;
     }
     
-    public static boolean login(String email, String password) {
+    public static Customer login(String email, String password) {
     	boolean isSuccess = false;
+    	customer = new Customer();
     	
     	try {
     		Connection myConnection = DatabaseConnection.getConnect();
@@ -97,13 +102,26 @@ public class DatabaseConnection {
     		ResultSet resultSet = statement.executeQuery();
     		isSuccess = resultSet.next();
     		
+    		if (isSuccess) {
+    			// get customer
+    			customer.setId(Integer.parseInt(resultSet.getString("id")));
+    			customer.setEmail(email);
+    			customer.setIsLoggedIn(true);
+    			customer.setfName(resultSet.getString("fName"));
+    			customer.setlName(resultSet.getString("lName"));
+    			return customer;
+    		} else {
+    			return customer;
+    		}
     	} catch (Exception e) {
     		e.printStackTrace();
+    		return customer;
     	}
-    	return isSuccess;
     }
     
     public static ArrayList<Listing> getListingsFromDatabase() {
+    	
+    	ArrayList<Listing> listings = new ArrayList<Listing>();
     	
     	try {
     		Connection myConnection = DatabaseConnection.getConnect();
@@ -112,22 +130,20 @@ public class DatabaseConnection {
     		ResultSet resultSet = statement.executeQuery();
     		int i = 0;
     		int totalRows = resultSet.getFetchSize();
-    		ArrayList<Listing> listings = new ArrayList<Listing>();
     		
-    		while (resultSet.next() && i < totalRows) {
+    		while (resultSet.next()) {
     			Listing listing = new Listing();
     			listing.setCarMake(resultSet.getString("carMake"));
     			listing.setCarModel(resultSet.getString("carModel"));
     			listing.setCarYear(resultSet.getString("carYear"));
     			listing.setCarMileage(Integer.parseInt(resultSet.getString("carMileage")));
     			listing.setCarColor(resultSet.getString("carColor"));
-    			listing.setCarCondition(resultSet.getString("carCondition"));
+    			listing.setCarCondition(resultSet.getString("carConditon"));
     			listing.setCarStartBid(Integer.parseInt(resultSet.getString("carStartBid")));
     			listing.setCarReservePrice(Integer.parseInt(resultSet.getString("carReservePrice")));
     			listing.setCarDescription(resultSet.getString("carDescription"));
-    			
+    			listing.setCustomerId(Integer.parseInt(resultSet.getString("userIdFK")));
     			listings.add(listing);
-    			return listings;
     		}
     		
     	} catch (SQLException ex) {
@@ -136,29 +152,6 @@ public class DatabaseConnection {
     		return null;
     	}
     	//Should handle incase nothing is returned
-		return null;
+		return listings;
     }
-    
-    
-    
 }
-
-    
-    // public static void main (String[] args) throws Exception {
-        
-    //  //Accessing driver from the JAR file
-        
-        
-        
-    //  try {
-    //      Connection myConn = DriverManager.getConnection(url,user,password);
-    //      PreparedStatement statement = myConn.prepareStatement("select * from Registration");
-    //      ResultSet result = statement.executeQuery();
-    //      while(result.next()) {
-    //          System.out.println(result.getString(2) + " " + result.getString(3));
-    //      }
-    //  } catch (SQLException e) {
-    //      e.printStackTrace();
-    //  }
-    // }
-

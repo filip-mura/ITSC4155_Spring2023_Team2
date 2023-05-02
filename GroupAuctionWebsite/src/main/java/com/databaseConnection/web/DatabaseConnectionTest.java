@@ -8,12 +8,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
-import com.databaseOperations.web.Customer;
-import com.databaseOperations.web.Listing;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 import org.junit.jupiter.api.Test;
+
+import com.classes.Customer;
+import com.classes.Listing;
 
 class DatabaseConnectionTest extends DatabaseConnection {
 	

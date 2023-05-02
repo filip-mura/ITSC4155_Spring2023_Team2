@@ -4,8 +4,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import com.classes.Listing;
+
 class ListingTest {
-	Listing testListing = new Listing("Ford", "Focus", "2017", 65000, "Blue", "Good", 10000, 30000, "Well maintained second owner");
+	Listing testListing = new Listing("Ford", "Focus", "2017", 65000, "Blue", "Good", 10000, 30000, "Well maintained second owner", 1);
 	@Test
 	void testGetCarMake() {
 		assertEquals("Ford", testListing.getCarMake());

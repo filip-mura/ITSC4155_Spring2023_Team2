@@ -1,5 +1,7 @@
 package com.databaseOperations.web;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 //import java.sql.Connection;
@@ -11,8 +13,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
+import com.classes.Listing;
 import com.databaseConnection.web.DatabaseConnection;
 
 @WebServlet("/InsertNewListing")
@@ -23,7 +27,7 @@ public class InsertListing extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			response.setContentType("text/html");
 			PrintWriter printWriter = response.getWriter();
-		
+			
 			String carMake = request.getParameter("make");
 			String carModel = request.getParameter("model");
 			String carYear = request.getParameter("year");
@@ -45,12 +49,13 @@ public class InsertListing extends HttpServlet {
 			newCar.setCarReservePrice(carReservePrice);
 			newCar.setCarYear(carYear);
 			
+			
 			int status = DatabaseConnection.save(newCar);
 			
 			if(status > 0) {
 //				JFrame frame = new JFrame();
 //				JOptionPane.showMessageDialog(frame, "Registration Saved!");
-				request.getRequestDispatcher("index.html").include(request, response);
+				request.getRequestDispatcher("viewListingIn.html").include(request, response);
 			} else {
 				printWriter.println("Unable to save. Try Again!!");
 			}

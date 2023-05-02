@@ -1,4 +1,4 @@
-package com.databaseOperations.web;
+package com.classes;
 
 public class Customer {
 	
@@ -7,18 +7,18 @@ public class Customer {
 	private String lName;
 	private String email;
 	private String password;
-	private boolean loggedIn;
+	private boolean isLoggedIn;
 	
 	public int getId() {
 		return id;
 	}
 	
-	public Customer(String fName, String lName, String email, String password, boolean loggedIn, int id) {
+	public Customer(String fName, String lName, String email, String password, boolean isLoggedIn, int id) {
 		this.fName = fName;
 		this.lName = lName;
 		this.email = email;
 		this.password = password;
-		this.loggedIn = false;
+		this.isLoggedIn = false;
 		this.id = id;
 		
 	}
@@ -60,6 +60,14 @@ public class Customer {
 	
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public void setIsLoggedIn(Boolean isLoggedIn) {
+		this.isLoggedIn = isLoggedIn;
+	}
+	
+	public Boolean getIsLoggedIn() {
+		return isLoggedIn;
 	}
 	
 }

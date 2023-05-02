@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import com.classes.Customer;
+
 class CustomerTest {
 	Customer testCustomer = new Customer("John", "Smith", "Jsmith@email.com", "1234", false, 1);
 	@Test
